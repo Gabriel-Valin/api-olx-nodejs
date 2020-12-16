@@ -1,0 +1,36 @@
+users:
+-> id
+-> name
+-> email
+-> state
+-> passwHash
+-> token
+
+<------------------------------------------->
+
+states:
+-> _id
+-> name
+
+<------------------------------------------->
+
+categories: 
+-> _id
+-> name
+-> slug
+
+<------------------------------------------->
+
+ads
+-> _id
+-> idUser
+-> category
+-> state
+-> dateCreated
+-> title
+-> images [{url, default_img: trueORfalse}]
+-> price
+-> negotiable (trueORfalse)
+-> descript
+-> views
+-> status
