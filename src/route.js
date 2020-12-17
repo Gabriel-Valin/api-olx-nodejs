@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Auth = require('./middlewares/Auth');
 const AuthValidator = require('./validators/AuthValidator');
+const UserValidator = require('./validators/UserValidator');
 
 const AuthController = require('./controllers/AuthController');
 const UserController = require('./controllers/UserController');
 const AdController = require('./controllers/AdController'); 
+
 
 router.get('/ping', (req, res) => {
   res.json({message: true});
@@ -20,7 +22,7 @@ router.post('/user/signup', AuthValidator.signup, AuthController.signup);
 // User
 
 router.get('/user/me', Auth.private, UserController.info);
-router.put('/user/me', Auth.private, UserController.editAction);
+router.put('/user/me', UserValidator.editAction, Auth.private, UserController.editAction);
 
 // Ad Routes
 
